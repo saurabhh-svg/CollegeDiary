@@ -1,7 +1,18 @@
 import React from "react";
-import { AppBar, Button, Toolbar, Typography, Box } from "@mui/material";
+import { useState } from "react";
+import { Link  } from "react-router-dom";
+import {
+  AppBar,
+  Button,
+  Toolbar,
+  Typography,
+  Box,
+  Tabs,
+  Tab,
+} from "@mui/material";
 
 const Header = () => {
+  const [value, setValue] = useState();
   return (
     <AppBar
       position="sticky"
@@ -12,8 +23,22 @@ const Header = () => {
     >
       <Toolbar>
         <Typography variant="h4">Blogs App</Typography>
+
+        <Box display="flex" marginLeft="auto" marginRight="auto">
+          <Tabs
+            textColor="inherit"
+            value={value}
+            onChange={(e, value) => setValue(value)}
+          >
+            <Tab LinkComponent={Link} to="/blogs" label="All Blogs" />
+            <Tab LinkComponent={Link} to="/myBlogs" label="My Blogs" />
+          </Tabs>
+        </Box>
+
         <Box display="flex" marginLeft="auto">
           <Button
+            LinkComponent={Link}
+            to="/auth"
             variant="contained"
             sx={{ margin: 1, borderRadius: 10 }}
             color="warning"
@@ -21,11 +46,22 @@ const Header = () => {
             Login
           </Button>
           <Button
+            LinkComponent={Link}
+            to="/auth"
             variant="contained"
             sx={{ margin: 1, borderRadius: 10 }}
             color="warning"
           >
             Signup
+          </Button>
+          <Button
+            LinkComponent={Link}
+            to="/auth"
+            variant="contained"
+            sx={{ margin: 1, borderRadius: 10 }}
+            color="warning"
+          >
+            Logout
           </Button>
         </Box>
       </Toolbar>
