@@ -17,7 +17,9 @@ const userSchema = new Schema({
     required: true,
     minlength: 6,
   },
+  blogs: [{ type: mongoose.Types.ObjectId, ref: "Blog", required: true }],
+  // 1 user can have multiple blog so we need array
 });
 
 export default mongoose.model("User", userSchema);
- //users
+//users
