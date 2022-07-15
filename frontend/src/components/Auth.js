@@ -3,9 +3,12 @@ import { useState } from "react";
 import { Box, Button, TextField, Typography } from "@mui/material";
 import axios from "axios";
 import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { authActions } from "../store/index";
 
 const Auth = () => {
+  const navigate = useNavigate();
+
   const dispatch = useDispatch();
 
   const [inputs, setInputs] = useState({
@@ -42,10 +45,12 @@ const Auth = () => {
     if (isSignUp) {
       sendRequest("signup")
         .then(() => dispatch(authActions.login()))
+        .then(() => navigate("/blogs"))
         .then((data) => console.log(data));
     } else {
       sendRequest()
         .then(() => dispatch(authActions.login()))
+        .then(() => navigate("/blogs"))
         .then((data) => console.log(data));
     }
   };
