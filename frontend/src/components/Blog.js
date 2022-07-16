@@ -14,13 +14,11 @@ import { useNavigate } from "react-router-dom";
 
 const Blog = ({ title, description, imageURL, userName, isUser, id }) => {
   const navigate = useNavigate();
+  //console.log(id);
+  const handleEdit = () => {
+    navigate(`/myBlogs/${id}`);
+  };
 
-  const handleEdit = (e) => {
-    navigate(`/myBlogs/${id}`);
-  };
-  const handleDelete = (e) => {
-    navigate(`/myBlogs/${id}`);
-  };
   console.log(title, isUser);
   return (
     <div>
@@ -41,7 +39,7 @@ const Blog = ({ title, description, imageURL, userName, isUser, id }) => {
             <IconButton onClick={handleEdit} sx={{ marginLeft: "auto" }}>
               <ModeEditOutlineIcon />
             </IconButton>
-            <IconButton onClick={handleDelete}>
+            <IconButton onClick={handleEdit}>
               <DeleteForeverIcon />
             </IconButton>
           </Box>
