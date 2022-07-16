@@ -7,8 +7,21 @@ import CardContent from "@mui/material/CardContent";
 import Avatar from "@mui/material/Avatar";
 import Typography from "@mui/material/Typography";
 import { red } from "@mui/material/colors";
+import { Box, IconButton } from "@mui/material";
+import ModeEditOutlineIcon from "@mui/icons-material/ModeEditOutline";
+import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
+import { useNavigate } from "react-router-dom";
 
-const Blog = ({ title, description, imageURL, userName }) => {
+const Blog = ({ title, description, imageURL, userName, isUser, id }) => {
+  const navigate = useNavigate();
+
+  const handleEdit = (e) => {
+    navigate(`/myBlogs/${id}`);
+  };
+  const handleDelete = (e) => {
+    navigate(`/myBlogs/${id}`);
+  };
+  console.log(title, isUser);
   return (
     <div>
       <Card
@@ -23,6 +36,16 @@ const Blog = ({ title, description, imageURL, userName }) => {
           },
         }}
       >
+        {isUser && (
+          <Box display="flex">
+            <IconButton onClick={handleEdit} sx={{ marginLeft: "auto" }}>
+              <ModeEditOutlineIcon />
+            </IconButton>
+            <IconButton onClick={handleDelete}>
+              <DeleteForeverIcon />
+            </IconButton>
+          </Box>
+        )}
         <CardHeader
           avatar={
             <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
@@ -35,7 +58,7 @@ const Blog = ({ title, description, imageURL, userName }) => {
         <CardMedia
           component="img"
           height="194"
-          image="{imageURL} "
+          image={imageURL}
           alt="Paella dish"
         />
         <CardContent>
