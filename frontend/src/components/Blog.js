@@ -50,10 +50,10 @@ const Blog = ({ title, description, imageURL, userName, isUser, id }) => {
         {isUser && (
           <Box display="flex">
             <IconButton onClick={handleEdit} sx={{ marginLeft: "auto" }}>
-              <ModeEditOutlineIcon />
+              <ModeEditOutlineIcon color="warning" />
             </IconButton>
             <IconButton onClick={handleDelete}>
-              <DeleteForeverIcon />
+              <DeleteForeverIcon color="error" />
             </IconButton>
           </Box>
         )}
@@ -72,7 +72,10 @@ const Blog = ({ title, description, imageURL, userName, isUser, id }) => {
           image={imageURL}
           alt="Paella dish"
         />
+
         <CardContent>
+          <hr />
+          <br />
           <Typography variant="body2" color="text.secondary">
             <b>{userName}</b>
             {":"} {description}
