@@ -5,7 +5,7 @@ import { useNavigate, useParams } from "react-router-dom";
 
 const BlogDetail = () => {
   const labelStyles = { mb: 1, mt: 2, fontSize: "24px", fontWeight: "bold" };
-  const navigate=useNavigate()
+  const navigate = useNavigate();
   const [blog, setBlog] = useState();
   const id = useParams().id;
   console.log(id);
@@ -51,7 +51,9 @@ const BlogDetail = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(inputs);
-    sendRequest().then((data) => console.log(data));
+    sendRequest()
+      .then((data) => console.log(data))
+      .then(() => navigate("/myblogs"));
   };
   return (
     <div>
