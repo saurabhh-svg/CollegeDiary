@@ -12,8 +12,10 @@ import {
 } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
 import { authActions } from "../store";
+import { useStyles } from "./utils";
 
 const Header = () => {
+  const classes = useStyles();
   const dispatch = useDispatch();
   const isLoggedIn = useSelector((state) => state.isLoggedIn);
   const [value, setValue] = useState();
@@ -26,7 +28,9 @@ const Header = () => {
       }}
     >
       <Toolbar>
-        <Typography variant="h4">Memories</Typography>
+        <Typography className={classes.font} variant="h4">
+          Memories
+        </Typography>
 
         {isLoggedIn && (
           <Box display="flex" marginLeft="auto" marginRight="auto">
@@ -35,9 +39,24 @@ const Header = () => {
               value={value}
               onChange={(e, value) => setValue(value)}
             >
-              <Tab LinkComponent={Link} to="/blogs" label="All Blogs" />
-              <Tab LinkComponent={Link} to="/myBlogs" label="My Blogs" />
-              <Tab LinkComponent={Link} to="/blogs/add" label="Add Blog" />
+              <Tab
+                className={classes.font}
+                LinkComponent={Link}
+                to="/blogs"
+                label="All Blogs"
+              />
+              <Tab
+                className={classes.font}
+                LinkComponent={Link}
+                to="/myBlogs"
+                label="My Blogs"
+              />
+              <Tab
+                className={classes.font}
+                LinkComponent={Link}
+                to="/blogs/add"
+                label="Add Blog"
+              />
             </Tabs>
           </Box>
         )}
