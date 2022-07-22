@@ -26,7 +26,7 @@ const Header = () => {
       }}
     >
       <Toolbar>
-        <Typography variant="h4">Blogs App</Typography>
+        <Typography variant="h4">Memories</Typography>
 
         {isLoggedIn && (
           <Box display="flex" marginLeft="auto" marginRight="auto">
