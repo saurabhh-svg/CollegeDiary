@@ -16,6 +16,7 @@ const Auth = () => {
     email: "",
     password: "",
   });
+
   const [isSignUp, setisSignUp] = useState();
 
   const handleChange = (e) => {
@@ -121,3 +122,4 @@ const Auth = () => {
 };
 
 export default Auth;
+
