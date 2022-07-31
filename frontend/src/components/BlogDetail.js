@@ -38,7 +38,7 @@ const BlogDetail = () => {
 
   const sendRequest = async () => {
     const res = await axios
-      .put(`http://localhost:3000/api/blog/update/${id}`, {
+      .put(`/api/blog/update/${id}`, {
         title: inputs.title,
         description: inputs.description,
       })
