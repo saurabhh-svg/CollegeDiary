@@ -8,6 +8,7 @@ import { config } from "dotenv";
 const app = express();
 config();
 
+app.use(express.static("public"));
 app.use(cors());
 app.use(express.json());
 

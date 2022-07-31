@@ -65,7 +65,7 @@ const AddBlog = () => {
             variant="h2"
             textAlign={"center"}
           >
-            Post your Blog
+            Post your Memory
           </Typography>
           <InputLabel className={classes.font} sx={labelStyles}>
             Title
